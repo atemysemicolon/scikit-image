@@ -234,7 +234,7 @@ def greycoprops(P, prop='contrast'):
     return results
 
 
-def local_binary_pattern(image, P, R, method='default'):
+def local_binary_pattern(image, P, R, method='default', th=0):
     """Gray scale and rotation invariant LBP (Local Binary Patterns).
 
     LBP is an invariant descriptor that can be used for texture classification.
@@ -288,5 +288,5 @@ def local_binary_pattern(image, P, R, method='default'):
         'var': ord('V')
     }
     image = np.ascontiguousarray(image, dtype=np.double)
-    output = _local_binary_pattern(image, P, R, methods[method.lower()])
+    output = _local_binary_pattern(image, P, R, methods[method.lower()],th)
     return output
